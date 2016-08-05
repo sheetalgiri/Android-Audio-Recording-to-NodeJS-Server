@@ -5,22 +5,18 @@ var app = express();
 var server = require('http').createServer(app);
 var port = process.env.PORT || 8080;
 var globalres;
+
 server.listen(port, function () {
   console.log('Server listening at port %d', port);
 });
 
 
 var fs= require('fs');
-const exec = require('child_process').exec;
 var chunks=[];
 var path='audio.amr';
 
 app.get('/', function (req, res) {
     res.send('Hello world!');
-});
-
-app.get('/test', function(req, res){
-  res.sendFile(__dirname + '/index.html');
 });
 
 app.get('/audio',function(req,res){
@@ -41,11 +37,8 @@ app.post('/upload',function(req,res){
 		else{
 			console.log("Audio Recieved:");
 			console.log(data);
-			
-			io.emit("ar","audio recieved");
 		}
 	});
-     	console.log("processing..");
      });
 });
 
