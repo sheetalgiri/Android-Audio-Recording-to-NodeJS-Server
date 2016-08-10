@@ -1,2 +1,4 @@
 # Android-Audio-Recording-to-NodeJS-Server
-Work in progress !
+
+>npm install
+>node server.js
